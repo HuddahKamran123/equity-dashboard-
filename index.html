@@ -486,6 +486,167 @@ footer{
 .row-bot{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;box-shadow:var(--sh)}
 .hdr-right{display:flex;align-items:center;gap:8px}
+
+/* ── ASK TAB (Step 6) ── */
+#pg-ask { display:none; padding:0; }
+.ask-layout { display:flex; height:calc(100vh - 160px); min-height:500px; }
+.ask-sidebar {
+  width:270px; flex-shrink:0;
+  border-right:1px solid var(--border);
+  display:flex; flex-direction:column; overflow-y:auto;
+  background:var(--surface);
+}
+.ask-sidebar-section { padding:14px 16px; border-bottom:1px solid var(--border); }
+.ask-sidebar-section h4 {
+  font-size:.67rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:.09em; color:var(--tx3); margin-bottom:8px;
+}
+.ask-dept-search {
+  width:100%; padding:7px 10px; border:1px solid var(--border);
+  border-radius:6px; font-size:.78rem; font-family:inherit; color:var(--tx1);
+  background:var(--bg); margin-bottom:6px; outline:none; transition:border-color .15s;
+}
+.ask-dept-search:focus { border-color:#60a5fa; background:#fff; }
+.ask-dept-select {
+  width:100%; padding:6px 10px; border:1px solid var(--border);
+  border-radius:6px; font-size:.78rem; font-family:inherit; color:var(--tx1);
+  background:#fff; cursor:pointer; outline:none; transition:border-color .15s; height:190px;
+}
+.ask-dept-select:focus { border-color:#60a5fa; }
+.ask-session-info { display:flex; flex-direction:column; gap:5px; }
+.ask-session-row { display:flex; justify-content:space-between; font-size:.72rem; }
+.ask-session-label { color:var(--tx3); }
+.ask-session-value { color:var(--tx1); font-weight:500; }
+.ask-quick-btns { display:flex; flex-direction:column; gap:5px; }
+.ask-quick-btn {
+  background:var(--surface); border:1px solid var(--border); border-radius:6px;
+  padding:6px 9px; font-size:.72rem; color:var(--tx2); cursor:pointer;
+  text-align:left; font-family:inherit; transition:all .15s; line-height:1.4;
+}
+.ask-quick-btn:hover { background:#dbeafe; border-color:#60a5fa; color:#2563eb; }
+.ask-main { flex:1; display:flex; flex-direction:column; overflow:hidden; min-width:0; }
+.ask-dept-overview { background:#fff; border-bottom:1px solid var(--border); padding:14px 18px; flex-shrink:0; }
+.ask-dept-overview.ask-empty {
+  display:flex; align-items:center; justify-content:center;
+  padding:28px; color:var(--tx3); font-size:.82rem;
+}
+.ask-dept-name { font-size:1.05rem; font-weight:700; color:var(--navy1); margin-bottom:3px; }
+.ask-dept-meta { font-size:.7rem; color:var(--tx3); margin-bottom:10px; }
+.ask-equity-cards { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+.ask-equity-card {
+  border:1px solid var(--border); border-radius:7px; padding:9px 11px;
+  background:var(--surface); position:relative;
+}
+.ask-equity-card.ask-below { border-left:3px solid #dc2626; }
+.ask-equity-card.ask-above { border-left:3px solid #16a34a; }
+.ask-card-group {
+  font-size:.6rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:.06em; color:var(--tx3); margin-bottom:3px;
+}
+.ask-card-rep { font-size:1.15rem; font-weight:700; color:var(--tx1); line-height:1.1; }
+.ask-card-wfa { font-size:.68rem; color:var(--tx3); margin-top:2px; }
+.ask-card-n { font-size:.62rem; color:var(--tx3); margin-top:1px; }
+.ask-card-gap { font-size:.72rem; font-weight:600; margin-top:5px; }
+.ask-card-gap.ask-neg { color:#dc2626; }
+.ask-card-gap.ask-pos { color:#16a34a; }
+.ask-card-sev {
+  display:inline-block; font-size:.6rem; font-weight:600;
+  padding:1px 5px; border-radius:3px; margin-top:3px;
+}
+.ask-sev-Slight { background:#dcfce7; color:#16a34a; }
+.ask-sev-Moderate { background:#fef9c3; color:#ca8a04; }
+.ask-sev-Substantial { background:#ffedd5; color:#ea580c; }
+.ask-sev-Severe { background:#fee2e2; color:#dc2626; }
+.ask-sev-above { background:#f0fdf4; color:#16a34a; }
+.ask-priority-flag { position:absolute; top:6px; right:7px; color:#dc2626; font-size:.82rem; }
+.ask-chat-area {
+  flex:1; overflow-y:auto; padding:14px 18px;
+  display:flex; flex-direction:column; gap:10px;
+}
+.ask-chat-welcome {
+  background:#dbeafe; border:1px solid #bfdbfe; border-radius:8px;
+  padding:12px 14px; font-size:.78rem; color:var(--navy1); line-height:1.6;
+}
+.ask-msg { display:flex; gap:7px; max-width:88%; }
+.ask-msg.ask-user { align-self:flex-end; flex-direction:row-reverse; }
+.ask-msg.ask-app  { align-self:flex-start; }
+.ask-msg-bubble { padding:9px 13px; border-radius:11px; font-size:.78rem; line-height:1.6; }
+.ask-msg.ask-user .ask-msg-bubble { background:#2563eb; color:#fff; border-bottom-right-radius:3px; }
+.ask-msg.ask-app  .ask-msg-bubble { background:#fff; border:1px solid var(--border); color:var(--tx1); border-bottom-left-radius:3px; }
+.ask-msg-avatar {
+  width:26px; height:26px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:.7rem; font-weight:700; flex-shrink:0; margin-top:2px;
+}
+.ask-msg.ask-user .ask-msg-avatar { background:#2563eb; color:#fff; }
+.ask-msg.ask-app  .ask-msg-avatar { background:var(--navy1); color:#fff; }
+.ask-resp-table { width:100%; border-collapse:collapse; margin-top:6px; font-size:.72rem; }
+.ask-resp-table th {
+  background:var(--surface); padding:5px 8px; text-align:left;
+  font-weight:600; color:var(--tx2); border-bottom:1px solid var(--border);
+}
+.ask-resp-table td { padding:5px 8px; border-bottom:1px solid #f1f5f9; vertical-align:top; }
+.ask-resp-table tr:last-child td { border-bottom:none; }
+.ask-resp-note { font-size:.68rem; color:var(--tx3); margin-top:6px; font-style:italic; }
+.ask-action-plan {
+  background:#fff; border:1px solid var(--border); border-radius:8px;
+  padding:14px; margin-top:4px; font-size:.78rem; line-height:1.7;
+}
+.ask-plan-section { margin-bottom:12px; }
+.ask-plan-section:last-child { margin-bottom:0; }
+.ask-plan-heading {
+  font-size:.67rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em;
+  color:#2563eb; margin-bottom:5px; padding-bottom:3px; border-bottom:1px solid #dbeafe;
+}
+.ask-plan-flag-row {
+  display:flex; align-items:flex-start; gap:7px;
+  padding:7px 0; border-bottom:1px solid var(--surface);
+}
+.ask-plan-flag-row:last-child { border-bottom:none; }
+.ask-plan-flag-icon { color:#dc2626; font-size:.9rem; flex-shrink:0; margin-top:1px; }
+.ask-plan-group { font-weight:600; color:var(--tx1); }
+.ask-plan-detail { color:var(--tx2); font-size:.7rem; }
+.ask-plan-caveat {
+  background:#fef3c7; border:1px solid #fbbf24; border-radius:6px;
+  padding:9px 11px; font-size:.7rem; color:#78350f; line-height:1.6;
+}
+.ask-copy-btn {
+  background:var(--navy1); color:#fff; border:none; padding:5px 12px;
+  border-radius:5px; font-size:.7rem; font-family:inherit; cursor:pointer;
+  font-weight:500; margin-top:8px; transition:background .15s;
+}
+.ask-copy-btn:hover { background:#2563eb; }
+.ask-suppressed { font-style:italic; color:var(--tx3); font-size:.68rem; }
+.ask-input-bar {
+  background:#fff; border-top:1px solid var(--border); padding:10px 18px;
+  display:flex; flex-direction:column; gap:6px; flex-shrink:0;
+}
+.ask-input-row { display:flex; gap:7px; }
+.ask-chat-input {
+  flex:1; padding:8px 12px; border:1px solid var(--border); border-radius:8px;
+  font-size:.78rem; font-family:inherit; color:var(--tx1); outline:none; transition:border-color .15s;
+}
+.ask-chat-input:focus { border-color:#60a5fa; }
+.ask-chat-input:disabled { background:var(--surface); color:var(--tx3); cursor:not-allowed; }
+.ask-send-btn {
+  background:#2563eb; color:#fff; border:none; padding:8px 16px; border-radius:8px;
+  font-size:.78rem; font-family:inherit; cursor:pointer; font-weight:500;
+  transition:background .15s; white-space:nowrap;
+}
+.ask-send-btn:hover:not(:disabled) { background:#1d4ed8; }
+.ask-send-btn:disabled { background:var(--border); cursor:not-allowed; color:var(--tx3); }
+.ask-plan-btn {
+  background:var(--navy1); color:#fff; border:none; padding:7px 14px; border-radius:8px;
+  font-size:.72rem; font-family:inherit; cursor:pointer; font-weight:500;
+  transition:background .15s; align-self:flex-end;
+}
+.ask-plan-btn:hover:not(:disabled) { background:var(--navy2); }
+.ask-plan-btn:disabled { background:var(--border); cursor:not-allowed; color:var(--tx3); }
+@media (max-width:900px) {
+  .ask-equity-cards { grid-template-columns:repeat(2,1fr); }
+  .ask-sidebar { width:220px; }
+}
+
 </style>
 </head>
 <body>
@@ -554,6 +715,16 @@ footer{
       <span class="step-cap">presentation-summary-render · subagent</span>
     </div>
   </button>
+
+  <button class="step-item" data-p="ask" onclick="setPage('ask')">
+    <div class="step-num">6</div>
+    <div class="step-body">
+      <div class="step-title">Ask</div>
+      <div class="step-sub">Get answers &amp; action plan</div>
+      <span class="step-cap">question-router &middot; subagent</span>
+    </div>
+  </button>
+
 
 </nav>
 <div class="app-content">
@@ -773,6 +944,140 @@ footer{
   </div>
 </div>
 </main>
+
+<div id="pg-ask" class="app-page" style="display:none">
+  <div class="stage-header">
+    <div class="stage-label">STAGE 6 &middot; ASK</div>
+    <div class="stage-title">Ask questions about any department&#39;s equity data</div>
+    <div class="stage-desc">Select a department to load its 2024&#8211;25 representation data across all four equity groups. Ask questions in plain English, or generate a full Action Plan for briefings. This interface cannot determine causes or make staffing decisions.</div>
+  </div>
+  <div class="ask-layout">
+    <aside class="ask-sidebar">
+      <div class="ask-sidebar-section">
+        <h4>Select Department</h4>
+        <input type="text" class="ask-dept-search" id="askDeptSearch" placeholder="Search departments..." autocomplete="off">
+        <select class="ask-dept-select" id="askDeptSelect" size="8">
+          <option value="">&#8212; choose a department &#8212;</option>
+          <option value="Accessibility Standards Canada">Accessibility Standards Canada</option>
+          <option value="Administrative Tribunals Support Service of Canada">Administrative Tribunals Support Service of Canada</option>
+          <option value="Agriculture and Agri-Food Canada">Agriculture and Agri-Food Canada</option>
+          <option value="Atlantic Canada Opportunities Agency">Atlantic Canada Opportunities Agency</option>
+          <option value="Canada Border Services Agency">Canada Border Services Agency</option>
+          <option value="Canada Economic Development for Quebec Regions">Canada Economic Development for Quebec Regions</option>
+          <option value="Canada School of Public Service">Canada School of Public Service</option>
+          <option value="Canadian Dairy Commission">Canadian Dairy Commission</option>
+          <option value="Canadian Grain Commission">Canadian Grain Commission</option>
+          <option value="Canadian Heritage">Canadian Heritage</option>
+          <option value="Canadian Human Rights Commission">Canadian Human Rights Commission</option>
+          <option value="Canadian Intergovernmental Conference Secretariat">Canadian Intergovernmental Conference Secretariat</option>
+          <option value="Canadian Northern Economic Development Agency">Canadian Northern Economic Development Agency</option>
+          <option value="Canadian Radio-television and Telecommunications Commission">Canadian Radio-television and Telecommunications Commission</option>
+          <option value="Canadian Space Agency">Canadian Space Agency</option>
+          <option value="Canadian Transportation Agency">Canadian Transportation Agency</option>
+          <option value="Civilian Review and Complaints Commission for the RCMP">Civilian Review and Complaints Commission for the RCMP</option>
+          <option value="Copyright Board Canada">Copyright Board Canada</option>
+          <option value="Correctional Service Canada">Correctional Service Canada</option>
+          <option value="Courts Administration Service">Courts Administration Service</option>
+          <option value="Crown-Indigenous Relations and Northern Affairs Canada">Crown-Indigenous Relations and Northern Affairs Canada</option>
+          <option value="Department of Finance Canada">Department of Finance Canada</option>
+          <option value="Department of Justice Canada">Department of Justice Canada</option>
+          <option value="Elections Canada">Elections Canada</option>
+          <option value="Employment and Social Development Canada">Employment and Social Development Canada</option>
+          <option value="Environment and Climate Change Canada">Environment and Climate Change Canada</option>
+          <option value="Federal Economic Development Agency for Northern Ontario">Federal Economic Development Agency for Northern Ontario</option>
+          <option value="Federal Economic Development Agency for Southern Ontario">Federal Economic Development Agency for Southern Ontario</option>
+          <option value="Fisheries and Oceans Canada">Fisheries and Oceans Canada</option>
+          <option value="Global Affairs Canada">Global Affairs Canada</option>
+          <option value="Health Canada">Health Canada</option>
+          <option value="Housing, Infrastructure and Communities Canada">Housing, Infrastructure and Communities Canada</option>
+          <option value="Immigration and Refugee Board of Canada">Immigration and Refugee Board of Canada</option>
+          <option value="Immigration, Refugees and Citizenship Canada">Immigration, Refugees and Citizenship Canada</option>
+          <option value="Impact Assessment Agency of Canada">Impact Assessment Agency of Canada</option>
+          <option value="Indigenous Services Canada">Indigenous Services Canada</option>
+          <option value="Innovation, Science and Economic Development Canada">Innovation, Science and Economic Development Canada</option>
+          <option value="International Joint Commission">International Joint Commission</option>
+          <option value="Law Commission of Canada">Law Commission of Canada</option>
+          <option value="Library and Archives Canada">Library and Archives Canada</option>
+          <option value="Military Grievances External Review Committee">Military Grievances External Review Committee</option>
+          <option value="Military Police Complaints Commission of Canada">Military Police Complaints Commission of Canada</option>
+          <option value="National Defence">National Defence</option>
+          <option value="Natural Resources Canada">Natural Resources Canada</option>
+          <option value="Office of the Commissioner for Federal Judicial Affairs Canada">Office of the Commissioner for Federal Judicial Affairs Canada</option>
+          <option value="Office of the Commissioner of Lobbying of Canada">Office of the Commissioner of Lobbying of Canada</option>
+          <option value="Office of the Commissioner of Official Languages">Office of the Commissioner of Official Languages</option>
+          <option value="Office of the Public Sector Integrity Commissioner of Canada">Office of the Public Sector Integrity Commissioner of Canada</option>
+          <option value="Office of the Secretary to the Governor General">Office of the Secretary to the Governor General</option>
+          <option value="Offices of the Information and Privacy Commissioners of Canada">Offices of the Information and Privacy Commissioners of Canada</option>
+          <option value="Parole Board of Canada">Parole Board of Canada</option>
+          <option value="Patented Medicine Prices Review Board Canada">Patented Medicine Prices Review Board Canada</option>
+          <option value="Privy Council Office">Privy Council Office</option>
+          <option value="Public Health Agency of Canada">Public Health Agency of Canada</option>
+          <option value="Public Prosecution Service of Canada">Public Prosecution Service of Canada</option>
+          <option value="Public Safety Canada">Public Safety Canada</option>
+          <option value="Public Service Commission of Canada">Public Service Commission of Canada</option>
+          <option value="Public Services and Procurement Canada">Public Services and Procurement Canada</option>
+          <option value="RCMP External Review Committee">RCMP External Review Committee</option>
+          <option value="Registrar of the Supreme Court of Canada">Registrar of the Supreme Court of Canada</option>
+          <option value="Royal Canadian Mounted Police">Royal Canadian Mounted Police</option>
+          <option value="Secretariat of the National Security and Intelligence Committee of Parliamentarians">Secretariat of the National Security and Intelligence Committee of Parliamentarians</option>
+          <option value="Shared Services Canada">Shared Services Canada</option>
+          <option value="Statistics Canada">Statistics Canada</option>
+          <option value="Transport Canada">Transport Canada</option>
+          <option value="Transportation Safety Board of Canada">Transportation Safety Board of Canada</option>
+          <option value="Treasury Board of Canada Secretariat">Treasury Board of Canada Secretariat</option>
+          <option value="Veterans Affairs Canada">Veterans Affairs Canada</option>
+          <option value="Veterans Review and Appeal Board">Veterans Review and Appeal Board</option>
+          <option value="Western Economic Diversification Canada">Western Economic Diversification Canada</option>
+          <option value="Women and Gender Equality Canada">Women and Gender Equality Canada</option>
+        </select>
+      </div>
+      <div class="ask-sidebar-section">
+        <h4>Session Info</h4>
+        <div class="ask-session-info">
+          <div class="ask-session-row"><span class="ask-session-label">Data year</span><span class="ask-session-value">2024&#8211;25</span></div>
+          <div class="ask-session-row"><span class="ask-session-label">Departments</span><span class="ask-session-value">71</span></div>
+          <div class="ask-session-row"><span class="ask-session-label">WFA &#8212; Women</span><span class="ask-session-value">54.9%</span></div>
+          <div class="ask-session-row"><span class="ask-session-label">WFA &#8212; Indigenous</span><span class="ask-session-value">4.0%</span></div>
+          <div class="ask-session-row"><span class="ask-session-label">WFA &#8212; Persons w/ Disab.</span><span class="ask-session-value">12.0%</span></div>
+          <div class="ask-session-row"><span class="ask-session-label">WFA &#8212; Visible Minorities</span><span class="ask-session-value">22.7%</span></div>
+        </div>
+      </div>
+      <div class="ask-sidebar-section">
+        <h4>Quick Questions</h4>
+        <div class="ask-quick-btns" id="askQuickQuestions">
+          <button class="ask-quick-btn" data-q="Which groups are below benchmark?">Which groups are below benchmark?</button>
+          <button class="ask-quick-btn" data-q="What are the largest gaps?">What are the largest gaps?</button>
+          <button class="ask-quick-btn" data-q="Where does this department exceed benchmark?">Where does this department exceed benchmark?</button>
+          <button class="ask-quick-btn" data-q="What actions do you recommend?">What actions do you recommend?</button>
+          <button class="ask-quick-btn" data-q="Show me the Women data">Show me the Women data</button>
+          <button class="ask-quick-btn" data-q="Show me the Indigenous Peoples data">Show me the Indigenous Peoples data</button>
+          <button class="ask-quick-btn" data-q="Show me Persons with Disabilities data">Show me Persons with Disabilities data</button>
+          <button class="ask-quick-btn" data-q="Show me Visible Minorities data">Show me Visible Minorities data</button>
+        </div>
+      </div>
+    </aside>
+    <div class="ask-main">
+      <div class="ask-dept-overview ask-empty" id="askDeptOverview">
+        <span>Select a department to begin your review</span>
+      </div>
+      <div class="ask-chat-area" id="askChatArea">
+        <div class="ask-chat-welcome">
+          <strong>Welcome to the EDI Policy Advisor.</strong><br>
+          Select a department from the sidebar to load its representation data across all four designated equity groups. Then ask questions in plain English &#8212; for example: &#8220;Which groups are below benchmark?&#8221;, &#8220;What does the Persons with Disabilities gap look like?&#8221;, or &#8220;What actions are recommended?&#8221;<br><br>
+          <strong>Note:</strong> This tool shows gaps as signals for human review. It cannot determine causes or make staffing decisions.
+        </div>
+      </div>
+      <div class="ask-input-bar">
+        <div class="ask-input-row">
+          <input type="text" class="ask-chat-input" id="askChatInput" placeholder="Select a department first..." disabled autocomplete="off">
+          <button class="ask-send-btn" id="askSendBtn" disabled>Send</button>
+        </div>
+        <button class="ask-plan-btn" id="askPlanBtn" disabled>&#9873; Generate Action Plan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div><!-- /app-main-col -->
 
 <!-- ── RIGHT PANEL ── -->
@@ -827,13 +1132,13 @@ function setGroup(g){
 function updateRightPanel(){
   const flags=fd().filter(r=>r.priority&&r.gap!==null);
   const grpLabel=G==="all"?"All Groups":G;
-  const stepLabels={overview:"Frame",gaps:"Explore Gaps",heatmap:"Compare",trends:"Track",distribution:"Present"};
-  const stepNums={overview:1,gaps:2,heatmap:3,trends:4,distribution:5};
+  const stepLabels={overview:"Frame",gaps:"Explore Gaps",heatmap:"Compare",trends:"Track",distribution:"Present",ask:"Ask"};
+  const stepNums={overview:1,gaps:2,heatmap:3,trends:4,distribution:5,ask:6};
   const el=id=>document.getElementById(id);
   if(el("rpFocus"))   el("rpFocus").textContent=grpLabel;
   if(el("rpSignals")) el("rpSignals").textContent=flags.length;
   if(el("rpSignalsSub")) el("rpSignalsSub").textContent=flags.length===1?"priority flag":"priority flags · current filter";
-  if(el("rpStepNum")) el("rpStepNum").textContent="Step "+(stepNums[PAGE]||"?")+" of 5";
+  if(el("rpStepNum")) el("rpStepNum").textContent="Step "+(stepNums[PAGE]||"?")+" of 6";
   if(el("rpStepName"))el("rpStepName").textContent=stepLabels[PAGE]||PAGE;
 }
 function fd(){return G==="all"?D:D.filter(r=>r.equity_group===G)}
@@ -1348,6 +1653,7 @@ function renderPage(){
   if(PAGE==="heatmap")    {renderHeatmap();}
   if(PAGE==="trends")     {renderTrend();renderMovers();}
   if(PAGE==="distribution"){renderHistogram();renderScatter();renderRecommendations();}
+  if(PAGE==="ask")          {renderAsk();}
 }
 /* ── ACTIONABLE RECOMMENDATIONS ── */
 function renderRecommendations(){
@@ -1631,6 +1937,423 @@ renderAll();
 updateRightPanel();
 updateStepOutputs();
 
+
+
+/* ════════════════════════════════════════════════════════════
+   ASK TAB — Step 6 · Question-Router · Policy Advisor
+   Uses the existing D array (dashboard field names)
+   ════════════════════════════════════════════════════════════ */
+
+/* Build per-department index from dashboard D array (2024-25 only) */
+const askByDept = {};
+D.filter(r => r.fiscal_year && r.fiscal_year.startsWith('2024')).forEach(row => {
+  const dept = row.department_agency;
+  const grp  = row.equity_group;
+  if (!askByDept[dept]) askByDept[dept] = {};
+  askByDept[dept][grp] = row;
+});
+
+const ASK_GROUPS = ['Women','Indigenous Peoples','Persons with Disabilities','Members of Visible Minorities'];
+const ASK_GROUP_SHORT = {
+  'Women':'Women',
+  'Indigenous Peoples':'Indigenous',
+  'Persons with Disabilities':'PwD',
+  'Members of Visible Minorities':'Visible Min.'
+};
+
+let askCurrentDept = null;
+
+/* ── Render hook called by setPage ── */
+function renderAsk(){
+  // Wire up dept search + select if not yet done
+  const srch = document.getElementById('askDeptSearch');
+  const sel  = document.getElementById('askDeptSelect');
+  if (srch && !srch._wired) {
+    srch._wired = true;
+    srch.addEventListener('input', () => {
+      const q = srch.value.toLowerCase();
+      Array.from(sel.options).forEach(opt => {
+        if (!opt.value) { opt.style.display = ''; return; }
+        opt.style.display = opt.text.toLowerCase().includes(q) ? '' : 'none';
+      });
+    });
+    sel.addEventListener('change', () => {
+      if (sel.value) askLoadDept(sel.value);
+    });
+    document.getElementById('askSendBtn').addEventListener('click', askSendMessage);
+    document.getElementById('askChatInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); askSendMessage(); }
+    });
+    document.getElementById('askPlanBtn').addEventListener('click', askGenerateActionPlan);
+    document.getElementById('askQuickQuestions').addEventListener('click', e => {
+      const btn = e.target.closest('.ask-quick-btn');
+      if (!btn) return;
+      const q = btn.dataset.q;
+      if (!askCurrentDept) { askAddAppMsg('Please select a department first before asking questions.'); return; }
+      askAddUserMsg(q);
+      const resp = askRouteQuestion(q);
+      setTimeout(() => askAddAppMsg(resp), 80);
+    });
+  }
+}
+
+function askLoadDept(dept) {
+  askCurrentDept = dept;
+  askRenderOverview(dept);
+  askEnableChat();
+  askClearChat();
+  askAddAppMsg(askBuildWelcome(dept));
+}
+
+function askBuildWelcome(dept) {
+  const rows = askByDept[dept];
+  if (!rows) return 'No data available for this department.';
+  const below = ASK_GROUPS.filter(g => rows[g] && rows[g].gap !== null && rows[g].gap < 0);
+  const above = ASK_GROUPS.filter(g => rows[g] && rows[g].gap !== null && rows[g].gap >= 0);
+  let msg = `<strong>${dept}</strong> data loaded for 2024&#8211;25.<br>`;
+  if (below.length) msg += `<br><strong>Below benchmark (priority review candidates):</strong> ${below.join(', ')}`;
+  if (above.length) msg += `<br><strong>At or above benchmark:</strong> ${above.join(', ')}`;
+  msg += `<br><br>Ask me anything about this department&#39;s equity data, or use the quick questions in the sidebar.`;
+  return msg;
+}
+
+function askRenderOverview(dept) {
+  const rows = askByDept[dept];
+  const ov = document.getElementById('askDeptOverview');
+  if (!rows) {
+    ov.innerHTML = '<span>No data for this department.</span>';
+    ov.classList.add('ask-empty'); return;
+  }
+  ov.classList.remove('ask-empty');
+
+  const totals = ASK_GROUPS.map(g => rows[g]?.all_employees).filter(v => v != null);
+  const total  = totals.length ? Math.max(...totals).toLocaleString() : 'N/A';
+
+  let cards = ASK_GROUPS.map(g => {
+    const row = rows[g];
+    if (!row || row.representation_percent === null) {
+      return `<div class="ask-equity-card"><div class="ask-card-group">${ASK_GROUP_SHORT[g]}</div><div class="ask-suppressed">Data suppressed or unavailable</div></div>`;
+    }
+    const isBelow = row.gap !== null && row.gap < 0;
+    const cls     = isBelow ? 'ask-below' : 'ask-above';
+    const gapSign = (row.gap !== null && row.gap >= 0) ? '+' : '';
+    const gapCls  = isBelow ? 'ask-neg' : 'ask-pos';
+    const flag    = isBelow ? '<span class="ask-priority-flag">&#9873;</span>' : '';
+    const sevNorm = row.severity ? row.severity.charAt(0).toUpperCase() + row.severity.slice(1) : '';
+    const sevBadge = sevNorm && sevNorm !== 'Above'
+      ? `<span class="ask-card-sev ask-sev-${sevNorm}">${sevNorm}</span>`
+      : (sevNorm === 'Above' ? `<span class="ask-card-sev ask-sev-above">Above WFA</span>` : '');
+    const nStr  = row.designated_group_members != null ? row.designated_group_members.toLocaleString() : '—';
+    const totStr= row.all_employees != null ? row.all_employees.toLocaleString() : '—';
+    const gapStr= row.gap != null ? `${gapSign}${row.gap.toLocaleString()} employees` : '—';
+    return `<div class="ask-equity-card ${cls}">
+      ${flag}
+      <div class="ask-card-group">${ASK_GROUP_SHORT[g]}</div>
+      <div class="ask-card-rep">${row.representation_percent}%</div>
+      <div class="ask-card-wfa">WFA: ${row.workforce_availability_percent}%</div>
+      <div class="ask-card-n">N=${nStr} of ${totStr}</div>
+      <div class="ask-card-gap ${gapCls}">${gapStr}</div>
+      ${sevBadge}
+    </div>`;
+  }).join('');
+
+  ov.innerHTML = `
+    <div class="ask-dept-name">${dept}</div>
+    <div class="ask-dept-meta">Total employees: ${total} &middot; Fiscal year: 2024&#8211;25 &middot; All figures are self-identification based</div>
+    <div class="ask-equity-cards">${cards}</div>`;
+}
+
+function askEnableChat() {
+  const inp  = document.getElementById('askChatInput');
+  const send = document.getElementById('askSendBtn');
+  const plan = document.getElementById('askPlanBtn');
+  inp.disabled  = false;
+  inp.placeholder = 'Ask a question about this department…';
+  send.disabled = false;
+  plan.disabled = false;
+}
+
+function askClearChat() {
+  document.getElementById('askChatArea').innerHTML = '';
+}
+
+function askAddUserMsg(text) {
+  const area = document.getElementById('askChatArea');
+  const div  = document.createElement('div');
+  div.className = 'ask-msg ask-user';
+  div.innerHTML = `<div class="ask-msg-avatar">You</div><div class="ask-msg-bubble">${askEsc(text)}</div>`;
+  area.appendChild(div);
+  area.scrollTop = area.scrollHeight;
+}
+
+function askAddAppMsg(html) {
+  const area = document.getElementById('askChatArea');
+  const div  = document.createElement('div');
+  div.className = 'ask-msg ask-app';
+  div.innerHTML = `<div class="ask-msg-avatar">EDI</div><div class="ask-msg-bubble">${html}</div>`;
+  area.appendChild(div);
+  area.scrollTop = area.scrollHeight;
+}
+
+function askEsc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function askSendMessage() {
+  const inp = document.getElementById('askChatInput');
+  const q   = inp.value.trim();
+  if (!q) return;
+  askAddUserMsg(q);
+  inp.value = '';
+  const resp = askRouteQuestion(q);
+  setTimeout(() => askAddAppMsg(resp), 80);
+}
+
+/* ── Question routing ── */
+function askRouteQuestion(q) {
+  if (!askCurrentDept) return 'Please select a department first.';
+  const rows = askByDept[askCurrentDept];
+  if (!rows) return 'No data available for this department.';
+  const ql = q.toLowerCase();
+
+  if (/hire|fire|staffing|promot|layoff|terminat/.test(ql))
+    return `<strong>Out of scope:</strong> This tool surfaces signals for human review, not staffing decisions. Hiring, firing, promotion, and staffing decisions require review by an EDI policy lead and are outside the scope of this advisor.`;
+
+  if (/why|cause|reason|because|explain why|due to/.test(ql)) {
+    return `<strong>Reframe:</strong> This tool shows representation gaps as signals for human review &#8212; it cannot determine causes. What I can tell you is:<br><br>${askGetGroupData(rows,null)}`;
+  }
+
+  if (/trend|improving|worsening|year.over.year|change over|previous year|last year/.test(ql))
+    return `<strong>Trend data:</strong> For year-over-year trend analysis, use the <strong>Track</strong> tab (Step 4) which compares 2023&#8211;24 and 2024&#8211;25 for 35 departments present in both years.`;
+
+  if (/gap|behind|below|worst|largest|biggest|most.urgent|priority/.test(ql))
+    return askGetBelowResponse(rows);
+
+  if (/best|above|ahead|exceed|over.benchmark|surpass/.test(ql))
+    return askGetAboveResponse(rows);
+
+  if (/women|gender/.test(ql))
+    return askGetSingleGroup(rows,'Women');
+  if (/indigenous|aboriginal|first nation|inuit|m.tis|metis/.test(ql))
+    return askGetSingleGroup(rows,'Indigenous Peoples');
+  if (/disabilit|pwd|persons with/.test(ql))
+    return askGetSingleGroup(rows,'Persons with Disabilities');
+  if (/visible minorit|minority|minorities|racialized/.test(ql))
+    return askGetSingleGroup(rows,'Members of Visible Minorities');
+
+  if (/recommend|action|what.*(do|should|can)|fix|improve|address|next step/.test(ql))
+    return askGetRecommendations(rows);
+
+  return askGetSummary(rows);
+}
+
+function askFormatRow(row) {
+  const gapSign = (row.gap != null && row.gap >= 0) ? '+' : '';
+  const repPct  = row.representation_percent != null ? row.representation_percent : '—';
+  const nStr    = row.designated_group_members != null ? row.designated_group_members.toLocaleString() : '—';
+  const totStr  = row.all_employees != null ? row.all_employees.toLocaleString() : '—';
+  const wfa     = row.workforce_availability_percent != null ? row.workforce_availability_percent : '—';
+  const gapVal  = row.gap != null ? `${gapSign}${row.gap.toLocaleString()} employees` : '—';
+  // compute pp difference
+  const pp = (row.representation_percent != null && row.workforce_availability_percent != null)
+    ? (row.representation_percent - row.workforce_availability_percent).toFixed(1) : null;
+  const ppStr = pp != null ? ` (${pp >= 0 ? '+' : ''}${pp} pp)` : '';
+  const sevNorm = row.severity ? row.severity.charAt(0).toUpperCase() + row.severity.slice(1) : '';
+  return {
+    group: row.equity_group,
+    rep:   `${repPct}% (N=${nStr} of ${totStr})`,
+    wfa:   `${wfa}%`,
+    gap:   `${gapVal}${ppStr}`,
+    sev:   sevNorm,
+    rec:   row.recommendation || '',
+    isBelow: row.gap !== null && row.gap < 0
+  };
+}
+
+function askSevBadge(sev) {
+  if (!sev) return '';
+  return `<span class="ask-card-sev ask-sev-${sev}">${sev}</span>`;
+}
+
+function askBuildTable(rowsArr) {
+  let html = `<table class="ask-resp-table"><thead><tr><th>Equity Group</th><th>Representation</th><th>WFA Benchmark</th><th>Gap</th><th>Severity</th></tr></thead><tbody>`;
+  rowsArr.forEach(f => {
+    const flag = f.isBelow ? '&#9873; ' : '';
+    html += `<tr>
+      <td>${flag}<strong>${f.group}</strong></td>
+      <td>${f.rep}</td><td>${f.wfa}</td><td>${f.gap}</td>
+      <td>${askSevBadge(f.sev)}</td>
+    </tr>`;
+  });
+  html += '</tbody></table>';
+  return html;
+}
+
+function askGetBelowResponse(rows) {
+  const below = ASK_GROUPS.map(g => rows[g]).filter(r => r && r.gap !== null && r.gap < 0);
+  if (!below.length)
+    return `<strong>No groups below benchmark</strong> at ${askCurrentDept}. All four equity groups currently meet or exceed their WFA benchmarks.<br><span class="ask-resp-note">Continue monitoring to ensure self-identification rates remain accurate.</span>`;
+  below.sort((a,b) => a.gap - b.gap);
+  const fmt = below.map(askFormatRow);
+  let html = `<strong>${below.length} group${below.length>1?'s':''} below benchmark</strong> at ${askCurrentDept}, ranked by gap size:<br><br>`;
+  html += askBuildTable(fmt);
+  html += `<div class="ask-resp-note">&#9873; = below WFA benchmark &#8212; signals a priority review candidate.</div>`;
+  below.forEach(r => { html += `<br>&#8226; <strong>${r.equity_group}:</strong> ${r.recommendation||'review recommended'}`; });
+  return html;
+}
+
+function askGetAboveResponse(rows) {
+  const above = ASK_GROUPS.map(g => rows[g]).filter(r => r && r.gap !== null && r.gap >= 0);
+  if (!above.length)
+    return `<strong>No groups are at or above benchmark</strong> at ${askCurrentDept} &#8212; all four groups are below their WFA benchmarks.`;
+  above.sort((a,b) => b.gap - a.gap);
+  let html = `<strong>${above.length} group${above.length>1?'s':''} at or above benchmark</strong> at ${askCurrentDept}:<br><br>`;
+  html += askBuildTable(above.map(askFormatRow));
+  html += `<div class="ask-resp-note">Being above benchmark is a positive signal, though representation should continue to be monitored.</div>`;
+  return html;
+}
+
+function askGetSingleGroup(rows, group) {
+  const row = rows[group];
+  if (!row || row.representation_percent === null)
+    return `Data for <strong>${group}</strong> is not available or suppressed for ${askCurrentDept}.`;
+  const f = askFormatRow(row);
+  const isBelow = row.gap !== null && row.gap < 0;
+  let html = `<strong>${group}</strong> at ${askCurrentDept}:<br><br>`;
+  html += askBuildTable([f]);
+  html += `<br>This department is <strong>${isBelow ? 'below' : 'at or above'} benchmark</strong> for ${group}.`;
+  if (isBelow) {
+    html += `<br><strong>Recommended review:</strong> ${row.recommendation||'review recommended'}`;
+    if (group === 'Persons with Disabilities')
+      html += `<br><span class="ask-resp-note">Note: Persons with Disabilities counts are based on voluntary self-identification and are likely undercounted.</span>`;
+  }
+  return html;
+}
+
+function askGetRecommendations(rows) {
+  const below = ASK_GROUPS.map(g => rows[g]).filter(r => r && r.gap !== null && r.gap < 0);
+  if (!below.length)
+    return `<strong>No below-benchmark gaps to recommend action on</strong> at ${askCurrentDept}. All four equity groups currently meet or exceed their WFA benchmarks. Continue monitoring for changes in future years.`;
+  below.sort((a,b) => a.gap - b.gap);
+  let html = `<strong>Recommended reviews for ${askCurrentDept}</strong> (${below.length} group${below.length>1?'s':''} below benchmark):<br><br>`;
+  below.forEach(r => {
+    const f = askFormatRow(r);
+    html += `<div style="margin-bottom:9px;padding:7px 10px;background:#f8fafc;border-left:3px solid #dc2626;border-radius:4px;">`;
+    html += `<strong>&#9873; ${r.equity_group}</strong> &#8212; ${askSevBadge(f.sev)}<br>`;
+    html += `<span style="font-size:.7rem;color:var(--tx2);">Rep: ${f.rep} &middot; WFA: ${f.wfa} &middot; Gap: ${f.gap}</span><br>`;
+    html += `<strong style="color:#2563eb;">&#8594; ${r.recommendation||'review recommended'}</strong>`;
+    html += `</div>`;
+  });
+  html += `<div class="ask-resp-note">These are signals for human review. An EDI policy lead must review before any action is taken.</div>`;
+  return html;
+}
+
+function askGetGroupData(rows, targetGroup) {
+  const groups = targetGroup ? [targetGroup] : ASK_GROUPS;
+  const relevant = groups.map(g => rows[g]).filter(r => r && r.representation_percent !== null);
+  if (!relevant.length) return 'No data available.';
+  return askBuildTable(relevant.map(askFormatRow));
+}
+
+function askGetSummary(rows) {
+  const below = ASK_GROUPS.filter(g => rows[g] && rows[g].gap !== null && rows[g].gap < 0);
+  const above = ASK_GROUPS.filter(g => rows[g] && rows[g].gap !== null && rows[g].gap >= 0);
+  let html = `<strong>Summary for ${askCurrentDept}</strong><br><br>`;
+  html += askGetGroupData(rows, null);
+  html += '<br>';
+  if (below.length) html += `<strong>Below benchmark:</strong> ${below.join(', ')}<br>`;
+  if (above.length) html += `<strong>At or above benchmark:</strong> ${above.join(', ')}<br>`;
+  html += `<br>You can ask about specific groups, gaps, or recommendations. I can also generate a full Action Plan.`;
+  return html;
+}
+
+/* ── Action Plan ── */
+function askGenerateActionPlan() {
+  if (!askCurrentDept) return;
+  const rows = askByDept[askCurrentDept];
+  if (!rows) return;
+
+  const below  = ASK_GROUPS.map(g => rows[g]).filter(r => r && r.gap !== null && r.gap < 0).sort((a,b) => a.gap - b.gap);
+  const totals = ASK_GROUPS.map(g => rows[g]?.all_employees).filter(v => v != null);
+  const total  = totals.length ? Math.max(...totals).toLocaleString() : 'N/A';
+
+  let html = `<div class="ask-action-plan" id="askActionPlanContent">`;
+
+  html += `<div class="ask-plan-section">
+    <div class="ask-plan-heading">1. Department Overview</div>
+    <strong>${askCurrentDept}</strong><br>
+    Total employees: ${total} &middot; Fiscal year: 2024&#8211;25<br>
+    Data source: TBS Employment Equity Demographic Snapshot (BT1-28-2025-eng.pdf, published 2026-03-26)
+  </div>`;
+
+  html += `<div class="ask-plan-section">
+    <div class="ask-plan-heading">2. Priority Flags &#8212; Groups Below WFA Benchmark</div>`;
+  if (!below.length) {
+    html += `<em>No groups below benchmark. All four equity groups meet or exceed their WFA targets.</em>`;
+  } else {
+    below.forEach(r => {
+      const gapSign = r.gap < 0 ? '' : '+';
+      const rep  = r.representation_percent != null ? r.representation_percent : '—';
+      const wfa  = r.workforce_availability_percent != null ? r.workforce_availability_percent : '—';
+      const n    = r.designated_group_members != null ? r.designated_group_members.toLocaleString() : '—';
+      const tot  = r.all_employees != null ? r.all_employees.toLocaleString() : '—';
+      const pp   = (r.representation_percent != null && r.workforce_availability_percent != null)
+        ? (r.representation_percent - r.workforce_availability_percent).toFixed(1) : null;
+      const ppStr = pp != null ? ` (${pp >= 0 ? '+':''}${pp} pp)` : '';
+      const sevNorm = r.severity ? r.severity.charAt(0).toUpperCase() + r.severity.slice(1) : '';
+      html += `<div class="ask-plan-flag-row">
+        <div class="ask-plan-flag-icon">&#9873;</div>
+        <div>
+          <div class="ask-plan-group">${r.equity_group} ${askSevBadge(sevNorm)}</div>
+          <div class="ask-plan-detail">Rep: ${rep}% (N=${n} of ${tot}) &middot; WFA: ${wfa}% &middot; Gap: ${gapSign}${r.gap.toLocaleString()} employees${ppStr}</div>
+        </div>
+      </div>`;
+    });
+  }
+  html += `</div>`;
+
+  if (below.length) {
+    html += `<div class="ask-plan-section">
+      <div class="ask-plan-heading">3. Recommended Reviews</div>`;
+    below.forEach(r => {
+      html += `<div style="margin-bottom:7px;">
+        <strong>${r.equity_group}:</strong> ${r.recommendation||'review recommended'}
+        ${r.equity_group === 'Persons with Disabilities' ? '<br><em style="font-size:.68rem;color:var(--tx3);">Note: PwD counts are based on voluntary self-identification and likely undercount the actual population.</em>' : ''}
+      </div>`;
+    });
+    html += `</div>`;
+  }
+
+  html += `<div class="ask-plan-section">
+    <div class="ask-plan-heading">4. Required Caveat</div>
+    <div class="ask-plan-caveat">
+      These gaps are signals for human review. No causal claims are made or implied. Self-identification is voluntary &#8212; Persons with Disabilities counts are likely undercounted. All priority flags require review by an EDI policy lead before any action is taken. This tool does not make staffing, hiring, or promotion recommendations.
+    </div>
+  </div>`;
+
+  html += `</div>`;
+  html += `<button class="ask-copy-btn" onclick="askCopyPlan()">Copy to Clipboard</button>`;
+
+  askAddAppMsg(html);
+}
+
+function askCopyPlan() {
+  const el = document.getElementById('askActionPlanContent');
+  if (!el) return;
+  const text = el.innerText;
+  const btn  = document.querySelector('.ask-copy-btn');
+  navigator.clipboard.writeText(text)
+    .then(() => { if(btn){btn.textContent='Copied!'; setTimeout(()=>btn.textContent='Copy to Clipboard',2000);} })
+    .catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    });
+}
+/* ── End Ask Tab ── */
 
 </script>
 </body>
